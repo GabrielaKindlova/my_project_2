@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block title %}overview{% endblock %} 
+{% block content %} 
+
+
+   <body>
+     
+     <h2>Vyhledávání a reporty</h2><br>
+
+      
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         <li>{{ message }}
+      {%- endfor %}
+         </ul>
+
+
+      <h3>Přehled</h3> 
+      <table class="table">
+         <thead>
+            <tr>
+               <th scope="col">First name</th>
+               <th scope="col">Last name</th>
+               <th scope="col">Address</th>
+               <th scope="col">City</th>
+               <th scope="col">ZIP</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for student in students %}
+               <tr>
+                  <td>{{ clients.firstName }}</td>  
+                  <td>{{ clients.lastName }}</td> 
+                  <td>{{ clients.addr }}</td>        
+                  <td>{{ clients.city }}</td>
+                  <td>{{ clients.zip }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+   </body>
+</html>
+{% endblock  %}
+

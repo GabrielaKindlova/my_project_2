@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}new_client{% endblock %}
+ {% block content %}
+    <h1>Klientská sekce</h1>
+
+       
+       
+       {%- for category, message in get_flashed_messages(with_categories = true) %}
+          <div class = "alert alert-danger">
+             {{ message }}
+          </div>
+       {%- endfor %}
+  
+
+
+       <h3>Clients (<a href = "{{ url_for('client_section.new_client') }}">Add Client
+      </a>)</h3>
+       
+      <form action = "{{ request.path }}" method = "post">    
+         <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="firstName">First name</label>
+              <input type="text" class="form-control" id="firstName" p>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lastName">Last name</label>
+              <input type="text" class="form-control" id="lastname">
+            </div>
+          </div> 
+          <div class="form-group">
+            <label for="addr">Address</label>
+            <input type="text" class="form-control" id="addr">          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city">
+            </div>                      
+            <div class="form-group col-md-2">
+              <label for="zip">Zip</label>
+              <input type="text" pattern="[0-9]{5}" id="zip" placeholder="111 11">
+            </div>
+          </div> 
+          <br />  
+                     
+          <input class="btn btn-primary" type="submit" value="Submit">
+       </form> 
+     
+
+{% endblock %}
